@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {Navigation, Footer, Home, Register, Dashboard, Teacher } from "./components";
 import './App.css';
 
 function App() {
@@ -14,20 +15,16 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {data}
-        </a>
-      </header>
+      <Router>
+        <Navigation />
+          <Switch>
+              <Route path="/" exact component={() => <Home />} />
+              <Route path="/register" exact component={() => <Register />} />
+              <Route path="/dashboard" exact component={() => <Dashboard />} />
+              <Route path="/teacher" exact component={() => <Teacher />} />
+          </Switch>
+        <Footer />
+      </Router>
     </div>
   );
 }
