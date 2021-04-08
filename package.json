@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node server/index.js",
-    "build": "cd client && npm install && npm run"
+    "build": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
